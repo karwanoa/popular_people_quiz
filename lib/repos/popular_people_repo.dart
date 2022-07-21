@@ -68,7 +68,6 @@ class PopularPeopeleRepo extends ChangeNotifier {
         themoviedb + 'person/popular' + APIkey + '&page=$pageIndex',
       );
       if (response.data != null) {
-        debugPrint(response.data['results'][0].toString());
         response.data['results'].forEach((e) {
           _popularPeople.add(PopularPeople.fromMap(e));
         });

@@ -26,7 +26,7 @@ class OnePeopleView extends StatelessWidget {
               child: Hero(
                 tag: onePopularPeople.id,
                 child: ImageNetwrokWithErrorBuilder(
-                    url: imageUrlBase + onePopularPeople.profilePath),
+                    url: onePopularPeople.profilePath),
               ),
             ),
             Padding(

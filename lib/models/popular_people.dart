@@ -26,15 +26,6 @@ class PopularPeople {
     );
   }
 
-  Map<String, dynamic> toMap() {
-    return {
-      'name': name,
-      'profile_path': profilePath,
-      'id': id,
-      'popularity': popularity,
-    };
-  }
-
   factory PopularPeople.fromMap(Map<String, dynamic> map) {
     return PopularPeople(
       name: map['name'] ?? '',
@@ -43,8 +34,6 @@ class PopularPeople {
       popularity: map['popularity']?.toDouble() ?? 0.0,
     );
   }
-
-  String toJson() => json.encode(toMap());
 
   factory PopularPeople.fromJson(String source) =>
       PopularPeople.fromMap(json.decode(source));

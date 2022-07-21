@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz/models/global_variables.dart';
 
 class ImageNetwrokWithErrorBuilder extends StatelessWidget {
   final String url;
@@ -9,7 +10,7 @@ class ImageNetwrokWithErrorBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.network(
-      url,
+      imageUrlBase + url,
       fit: BoxFit.cover,
       errorBuilder: (context, _, stack) {
         return Image.asset(
