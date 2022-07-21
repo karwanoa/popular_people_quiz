@@ -12,30 +12,27 @@ class OneImageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Image View'),
-        actions: [
-          IconButton(
-            onPressed: () {
-              saveNetworkImage(imageUrlBase + imageNPath).then((value) {
-                if (value) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('Photo saved successfully'),
-                  ));
-                } else {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('There was an error'),
-                  ));
-                }
-              });
-            },
-            icon: const Icon(Icons.save),
-          )
-        ],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          saveNetworkImage(imageUrlBase + imageNPath).then((value) {
+            if (value) {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: Text('Photo saved successfully'),
+              ));
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: Text('There was an error'),
+              ));
+            }
+          });
+        },
+        child: const Icon(Icons.save),
       ),
-      body: Hero(
-        tag: imageNPath,
-        child: ImageNetwrokWithErrorBuilder(url: imageNPath),
+      body: SafeArea(
+        child: Hero(
+          tag: imageNPath,
+          child: ImageNetwrokWithErrorBuilder(url: imageNPath),
+        ),
       ),
     );
   }

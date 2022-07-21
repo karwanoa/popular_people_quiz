@@ -41,7 +41,7 @@ class PersonImagesRepo extends ChangeNotifier {
     notifyListeners();
     try {
       Response response = await _dio.get(
-        themoviedb + '/person/$id/images' + APIkey,
+        themoviedb + '/person/$id/images' + keyAPI,
       );
       if (response.data != null) {
         response.data['profiles'].forEach(((e) {

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz/models/global_variables.dart';
 
@@ -9,10 +10,10 @@ class ImageNetwrokWithErrorBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(
-      imageUrlBase + url,
+    return CachedNetworkImage(
+      imageUrl: imageUrlBase + url,
       fit: BoxFit.cover,
-      errorBuilder: (context, _, stack) {
+      errorWidget: (context, _, stack) {
         return Image.asset(
           'assets/no_photo.jpeg',
           fit: BoxFit.cover,

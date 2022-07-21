@@ -1,9 +1,18 @@
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
+
+part 'one_person.g.dart';
+
+@HiveType(typeId: 0)
 class OnePersonDetails {
+  @HiveField(0)
   final String birthday;
+  @HiveField(1)
   final String knownForDepartment;
+  @HiveField(2)
   final String biography;
+  @HiveField(3)
   final String placeOfBirth;
   OnePersonDetails({
     required this.birthday,

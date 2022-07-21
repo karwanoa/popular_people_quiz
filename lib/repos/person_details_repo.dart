@@ -34,13 +34,13 @@ class PersonDetailsRepo extends ChangeNotifier {
             }),
           );
 
-  Future<void> getPopularPeople(int id) async {
+  Future<void> getDetails(int id) async {
     _personDetailsStatus = PersonDetailsStatus.Loading;
     await Future.delayed(Duration.zero);
     notifyListeners();
     try {
       Response response = await _dio.get(
-        themoviedb + '/person/$id' + APIkey,
+        themoviedb + '/person/$id' + keyAPI,
       );
       if (response.data != null) {
         _onePersonDetails = OnePersonDetails.fromMap(response.data);

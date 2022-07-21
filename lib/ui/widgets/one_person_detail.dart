@@ -36,7 +36,11 @@ class OnePersonDetailWidget extends StatelessWidget {
                 ListTile(
                   title: Text(
                     'Biography: ${value.onePersonDetails!.biography}',
+                    textAlign: TextAlign.justify,
                   ),
+                ),
+                const SizedBox(
+                  height: 10,
                 ),
               ],
             );

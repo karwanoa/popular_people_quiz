@@ -1,9 +1,17 @@
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
+part 'popular_people.g.dart';
+
+@HiveType(typeId: 1)
 class PopularPeople {
+  @HiveField(0)
   String name;
+  @HiveField(1)
   String profilePath;
+  @HiveField(2)
   int id;
+  @HiveField(3)
   double popularity;
   PopularPeople({
     required this.name,

@@ -23,7 +23,7 @@ class _OnePersonDetailsState extends State<OnePersonDetails> {
   void initState() {
     super.initState();
     Provider.of<PersonDetailsRepo>(context, listen: false)
-        .getPopularPeople(widget.onePopularPeople.id);
+        .getDetails(widget.onePopularPeople.id);
     Provider.of<PersonImagesRepo>(context, listen: false)
         .getImages(widget.onePopularPeople.id);
   }
