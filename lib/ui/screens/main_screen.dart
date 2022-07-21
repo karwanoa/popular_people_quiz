@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz/ui/widgets/one_people_view.dart';
 
-import '../models/global_variables.dart';
-import '../repos/popular_people_repo.dart';
+import '../../repos/popular_people_repo.dart';
+import '../widgets/loading_indicator.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -17,6 +17,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   void initState() {
     super.initState();
+    //Load first page of popular people
     Provider.of<PopularPeopeleRepo>(context, listen: false).getPopularPeople();
     _scrollController = ScrollController();
   }
@@ -34,7 +35,6 @@ class _MainScreenState extends State<MainScreen> {
             PopularPeopeleStatus.Loading) {
           Provider.of<PopularPeopeleRepo>(context, listen: false)
               .getPopularPeople();
-          debugPrint('sdaasda');
         }
       }
     });
@@ -50,9 +50,7 @@ class _MainScreenState extends State<MainScreen> {
                 Widget? child) {
               switch (value.popularPeopeleStatus) {
                 case PopularPeopeleStatus.Unloaded:
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
+                  return const LoadingIndicator();
                 case PopularPeopeleStatus.Loaded:
                 case PopularPeopeleStatus.Loading:
                   return GridView.builder(
@@ -74,9 +72,7 @@ class _MainScreenState extends State<MainScreen> {
                   );
 
                 default:
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
+                  return const LoadingIndicator();
               }
             },
           ),
